@@ -23,8 +23,8 @@ TWITTER_ACCESS_TOKEN_SECRET = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 TWITTER_CONSUMER_KEY = getenv("TWITTER_CONSUMER_KEY")
 TWITTER_CONSUMER_SECRET = getenv("TWITTER_CONSUMER_SECRET")
 
-# The user ID of @realDonaldTrump.
-TRUMP_USER_ID = "25073877"
+# The user ID of @realDonaldTrump. -> changed to chamath
+TRUMP_USER_ID = "3291691"
 
 # The user ID of @Trump2Cash.
 TRUMP2CASH_USER_ID = "812529080998432769"
@@ -190,12 +190,12 @@ class Twitter:
         # Only the 3,200 most recent tweets are available through the API. Use
         # the @Trump2Cash account to filter down to the relevant ones.
         for status in Cursor(self.twitter_api.user_timeline,
-                             user_id=TRUMP2CASH_USER_ID,
+                             user_id=TRUMP_USER_ID,
                              exclude_replies=True).items():
 
             # Extract the quoted @realDonaldTrump tweet, if available.
             try:
-                quoted_tweet_id = status.quoted_status_id
+                quoted_tweet_id = status.id
             except AttributeError:
                 self.logs.warn('Skipping tweet: %s' % status)
                 continue
