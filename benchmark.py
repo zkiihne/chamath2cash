@@ -143,10 +143,15 @@ if __name__ == "__main__":
             strategy = trading.get_strategy(company, market_status)
             print("company", company["ticker"])
             print("strategy", strategy)
+            print("time", timestamp)
             
             # What was the price at tweet and at EOD?
-            price = trading.get_historical_prices(
-                company["ticker"], timestamp)
+            try:
+                price = trading.get_historical_prices(
+                    company["ticker"], timestamp)
+            except:
+                print("failed to fetch price")
+                price = False
             if price:
                 strategy["price_at"] = price["at"]
                 strategy["price_eod"] = price["eod"]
