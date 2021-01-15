@@ -70,7 +70,7 @@ class Twitter:
                                retry_count=API_RETRY_COUNT,
                                retry_delay=API_RETRY_DELAY_S,
                                retry_errors=API_RETRY_ERRORS,
-                               wait_on_rate_limit=False,
+                               wait_on_rate_limit=True,
                                wait_on_rate_limit_notify=True)
         self.twitter_listener = None
 
