@@ -110,7 +110,11 @@ if __name__ == "__main__":
     analysis = Analysis(logs_to_cloud=False)
     trading = Trading(logs_to_cloud=False)
     twitter = Twitter(logs_to_cloud=False)
-    
+    import os
+    import sys
+    print ('line 1 to stdout  ')
+    sys.stdout.write('line 2 to stdout  ')
+    os.write(1, b'line 3 to stdout  ')
     print("getting all tweets")
     # Look up the metadata for the tweets.
     tweets = twitter.get_all_tweets()
