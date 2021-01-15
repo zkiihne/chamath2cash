@@ -147,7 +147,7 @@ def test_get_tweet(twitter):
     assert tweet["user"]["screen_name"] == "realDonaldTrump"
     assert tweet["created_at"] == "Fri Mar 24 17:59:42 +0000 2017"
 
-
+ 
 def test_get_tweet_link(twitter):
     tweet = twitter.get_tweet("828574430800539648")
     assert twitter.get_tweet_link(tweet) == (
