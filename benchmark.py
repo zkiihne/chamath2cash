@@ -109,9 +109,8 @@ def should_trade(strategy, date, previous_trade_date):
 if __name__ == "__main__":
     import os
     import sys
-    print ('line 1 to stdout  ')
-    sys.stdout.write('line 2 to stdout  ')
-    os.write(1, b'line 3 to stdout  ')
+    print ('beginning')
+    
     
     
     analysis = Analysis(logs_to_cloud=False)
