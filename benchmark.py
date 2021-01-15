@@ -110,7 +110,8 @@ if __name__ == "__main__":
     analysis = Analysis(logs_to_cloud=False)
     trading = Trading(logs_to_cloud=False)
     twitter = Twitter(logs_to_cloud=False)
-
+    
+    print("getting all tweets")
     # Look up the metadata for the tweets.
     tweets = twitter.get_all_tweets()
 
@@ -135,7 +136,9 @@ if __name__ == "__main__":
             # What would have been the strategy?
             market_status = get_market_status(timestamp)
             strategy = trading.get_strategy(company, market_status)
-
+            print("company", company["ticker"])
+            print("strategy", strategy)
+            
             # What was the price at tweet and at EOD?
             price = trading.get_historical_prices(
                 company["ticker"], timestamp)
